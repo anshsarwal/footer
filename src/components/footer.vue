@@ -2,55 +2,56 @@
   <v-app>
     <div>
     <v-container fluid class="pa-0">
-      <v-layout row wrap class="lay pa-0">
-        <v-flex xs2 offset-xs1 class="flex">
-          <v-list>
-            <v-list-tile v-for="info in footerInfos1" :key="info">
+      <v-layout row wrap class="lay">
+        <!-- Policy Info -->
+        <v-flex xs3 id="company">
+          <v-list dense v-for="(info, i) in footerInfos1" :key="i">
+            <v-list-tile>
               <v-list-tile-content>
                 <v-list-tile-title>
                   <span>{{ info.title }}</span>
                 </v-list-tile-title>
-                <v-list-tile-action-text>
+                <v-list-tile-sub-title>
                   <span>{{ info.children }}</span>
-                </v-list-tile-action-text>
+                </v-list-tile-sub-title>
               </v-list-tile-content>
             </v-list-tile>
           </v-list>
         </v-flex>
-
-        <v-flex xs2 offset-xs1 class="flex">
-          <v-list>
-            <v-list-tile v-for="info in footerInfos2" :key="info">
+        <!-- Company -->
+        <v-flex xs3 id="company">
+          <v-list dense v-for="(info, i) in footerInfos2" :key="i">
+            <v-list-tile>
               <v-list-tile-content>
                 <v-list-tile-title>
                   <span>{{ info.title }}</span>
                 </v-list-tile-title>
-                <v-list-tile-action-text>
+                <v-list-tile-sub-title>
                   <span>{{ info.children }}</span>
-                </v-list-tile-action-text>
+                </v-list-tile-sub-title>
               </v-list-tile-content>
             </v-list-tile>
           </v-list>
         </v-flex>
-
-        <v-flex xs2 offset-xs1 class="flex">
-          <v-list>
-            <v-list-tile v-for="info in footerInfos3" :key="info">
+        <!-- Need Help -->
+        <v-flex xs3 id="needHelp">
+          <v-list dense v-for="(info, i) in footerInfos3" :key="i">
+            <v-list-tile>
               <v-list-tile-content>
                 <v-list-tile-title>
                   <span>{{ info.title }}</span>
                 </v-list-tile-title>
-                <v-list-tile-action-text>
+                <v-list-tile-sub-title>
                   <span>{{ info.children }}</span>
-                </v-list-tile-action-text>
+                </v-list-tile-sub-title>
               </v-list-tile-content>
             </v-list-tile>
           </v-list>
         </v-flex>
-
-        <v-flex xs2 class="flex">
-          <v-list>
-            <v-list-tile v-for="info in footerInfos4" :key="info">
+        <!-- Subscribe -->
+        <v-flex xs3  id="Subscribe">
+          <v-list dense v-for="(info, i) in footerInfos4" :key="i">
+            <v-list-tile>
               <v-list-tile-content>
                 <v-list-tile-title>
                   <span>{{ info.title }}</span>
@@ -58,34 +59,35 @@
               </v-list-tile-content>
             </v-list-tile>
           </v-list>
-          <v-flex xs12 offset-xs1 id="subscribe">
+          <!-- For Email -->
+          <v-flex xs10 offset-xs1 id="email">
             <v-text-field v-model="email" label="EMAIL" :rules="emailRules">
             </v-text-field>
-            <v-flex>
+            <v-flex class="text-xs-center">
               <v-btn depressed small id="button">SUBSCRIBE</v-btn>
             </v-flex>
           </v-flex>  
         </v-flex>
       </v-layout>
     </v-container>
-
+    <!-- Please Connect With Us -->
     <v-container fluid class="pa-0">
       <v-layout row wrap class="lay">
         <v-flex xs12 class="text-xs-center connect" style="padding-top: 12px;">
           <span>Please Connect With Us</span>  
         </v-flex>
-        <v-flex xs8 offset-xs2 color="grey lighten-1" style="padding-top: 10px; padding-bottom: 5px">
+        <v-flex xs8 offset-xs2 style="padding-top: 10px; padding-bottom: 5px">
           <v-btn v-for="icon in icons" :key="icon" icon class="mx-5">
-            <v-icon size="16px">{{ icon }}</v-icon>
+            <v-icon size="22px">{{ icon }}</v-icon>
           </v-btn>
         </v-flex>
       </v-layout>
     </v-container>
-
+    <!-- Copyright -->
     <v-container fluid class="pa-0">
       <v-layout row wrap class="lay">
         <v-flex class="text-xs-center" style="padding-top: 10px; padding-bottom: 5px">
-          &copy;2018 — <strong>SkyLim InfoTech Pvt. Ltd. </strong>
+          &copy;2018 — <strong>SkyLim InfoTech Pvt Ltd</strong>
         </v-flex>
       </v-layout>
     </v-container>
@@ -119,15 +121,24 @@
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .lay{
-  border: solid black 1px;
   font-family: 'Open Sans', arial, Verdana, Tahoma, sans-serif;
   border: solid lightgray 1px;
+}
+/*List Styling*/
+.list__tile__title{
+  font-size: 20px;
+  text-align: center;
+}
+.list__tile__sub-title{
+  font-size: 13px;
+  text-align: center;
+  color: black!important;
 }
 .connect span{
   font-size: 16px;
 }
+/*For The Hovering Button*/
 #button{
-  border-radius: 6px;
   border: solid 2px deepskyblue;
   color: deepskyblue;
   background-color: white;
